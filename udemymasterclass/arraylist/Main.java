@@ -3,6 +3,7 @@ package udemymasterclass.arraylist;
 import java.util.Scanner;
 
 public class Main {
+    public static final String p = "\u001B[35m";
     private static Scanner scanner = new Scanner(System.in);
     private static MobilePhone mobilePhone = new MobilePhone("079 335 1364");
 
@@ -82,10 +83,10 @@ public class Main {
         String name = scanner.nextLine();
         Contact existingContactRecord = mobilePhone.queryContact(name);
         if(existingContactRecord == null){
-            System.out.println("Contact not found!");
+            System.out.println(name+" not found!");
             return;
         }
-        System.out.println("enter name: ");
+        System.out.println("enter new name: ");
         String newName = scanner.nextLine();
         System.out.println("enter new number: ");
         String newNumber = scanner.nextLine();
@@ -94,7 +95,7 @@ public class Main {
         if(mobilePhone.updateContact(existingContactRecord, newContact)){
             System.out.println(name+ ", now updated");
         }else{
-            System.out.println("Error can't updated"+ name  );
+            System.out.println("can't updated "+ name  );
         }
 
 
@@ -118,15 +119,15 @@ public class Main {
     }
 
     private static void printActions() {
-            System.out.println("\n Available actions:\n");
-            System.out.println("0 - to shutdown\n"+
+            System.out.println( "\n Available actions:\n");
+            System.out.println(p+"0 - to shutdown\n"+
                     "1 - to print contacts\n"+
                     "2 - to add new contact\n"+
                     "3 - to update contact\n"+
                     "4 - to remove contact\n"+
                     "5 - to query contact\n" +
                     "6 - to print list of actions");
-            System.out.println("\n Choose your action: ");
+            System.out.println("\n Choose your action:\t ");
     }
 
     private static void startPhone() {

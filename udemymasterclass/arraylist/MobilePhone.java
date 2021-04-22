@@ -26,6 +26,9 @@ public class MobilePhone {
         if(foundPosition<0){
             System.out.println(oldContact.getName()+ " was not found!");
             return false;
+        }else if(findContact(newContact.getName()) !=-1){
+            System.out.println("Error\n"+ newContact.getName() +"  already in list");
+            return false;
         }
         this.myContacts.set(foundPosition, newContact);
         System.out.println(oldContact.getName()+" was replaced");
@@ -75,7 +78,7 @@ public class MobilePhone {
         System.out.println("contact list: ");
         for (int i = 0; i < this.myContacts.size(); i++) {
             System.out.println((i+1)+"."+
-                    this.myContacts.get(i).getName()+" -> 2"+
+                    this.myContacts.get(i).getName()+" -> "+
                     this.myContacts.get(i).getPhoneNumber());
         }
 
